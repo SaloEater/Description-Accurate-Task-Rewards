@@ -43,7 +43,7 @@ function xr_effects.reward_faction_gun(actor, actor_npc, p)
     local npc = get_task_giver_npc(p)
 
     if not npc then
-        notify_no_ammo_left()
+        notify_weapon_felt_apart()
         return
     end
 
