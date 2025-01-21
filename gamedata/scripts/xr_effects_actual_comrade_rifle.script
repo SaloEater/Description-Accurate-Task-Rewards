@@ -66,6 +66,7 @@ function xr_effects.reward_faction_gun(actor, actor_npc, p)
             if not weapons_before[item_id] then
                 npc:mark_item_dropped(item, true) --don't spawn ammo for it, see death_manager.script:734
                 death_manager.set_weapon_drop_condition(npc,item)
+                item:set_ammo_elapsed(0)
                 npc:transfer_item(item, db.actor)
                 found = true
             end
