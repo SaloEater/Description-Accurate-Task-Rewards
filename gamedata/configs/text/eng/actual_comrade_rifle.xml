@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<string_table>
+    <string id="actual_comrade_rifle_fail">
+        <text>The weapon %sfalls apart%s into worthless scraps the moment it touches your hands</text>
+    </string>
+</string_table>
