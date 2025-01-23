@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <string_table>
-    <string id="promised_task_items_weapon_fail">
+    <string id="description_accurate_task_rewards_weapon_fail">
         <text>The weapon %sfalls apart%s into worthless scraps the moment it touches your hands</text>
     </string>
-    <string id="promised_task_items_ammo_fail">
+    <string id="description_accurate_task_rewards_ammo_fail">
         <text>Sorry, actually no spare ammo left</text>
     </string>
 </string_table>

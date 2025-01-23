@@ -20,11 +20,11 @@ end
 function notify_weapon_felt_apart()
     local red_color = utils_xml.get_color("d_red")
     local white_color = utils_xml.get_color("pda_white")
-    news_manager.send_tip(db.actor, string.format(game.translate_string("promised_task_items_weapon_fail"), red_color, white_color))
+    news_manager.send_tip(db.actor, string.format(game.translate_string("description_accurate_task_rewards_weapon_fail"), red_color, white_color))
 end
 
 function notify_no_ammo_left()
-    news_manager.send_tip(db.actor, game.translate_string("promised_task_items_ammo_fail"))
+    news_manager.send_tip(db.actor, game.translate_string("description_accurate_task_rewards_ammo_fail"))
 end
 
 function get_task_giver_npc(p)
