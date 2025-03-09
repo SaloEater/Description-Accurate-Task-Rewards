@@ -206,8 +206,6 @@ local tasks_map = {
 function on_game_start()
     local old_task_manager_set_task_completed = task_manager.CRandomTask.set_task_completed
     function task_manager.CRandomTask.set_task_completed(self, task_id)
-
-        printf("new task_manager.set_task_completed %s", task_id)
         local task_reward = tasks_map[task_id]
         if task_reward then
             task_reward()
