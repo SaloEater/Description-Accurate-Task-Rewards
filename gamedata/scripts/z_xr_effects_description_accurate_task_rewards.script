@@ -158,6 +158,11 @@ function xr_effects.reward_own_ammo(actor, actor_npc, p)
     end
 
     local bw = npc:active_item() and npc:best_weapon()
+    if not bw then
+        notify_no_ammo_left()
+        return
+    end
+
     local ammo_class = parse_list(ini_sys,bw:section(),"ammo_class")
 
     spawn_ammo_on_actor(ammo_class)
