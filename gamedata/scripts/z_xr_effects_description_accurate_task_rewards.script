@@ -167,6 +167,7 @@ function xr_effects.reward_random_ammo(actor, actor_npc, p)
     -- param1 - task_id
     local npc = get_task_giver_npc(p)
 
+    printf("npc %s", npc and npc:id() or "nil")
     if not npc then
         notify_no_ammo_left()
         return
@@ -187,4 +188,26 @@ function xr_effects.reward_random_ammo(actor, actor_npc, p)
     local ammo_class = parse_list(ini_sys,random_weapon.sec,"ammo_class")
 
     spawn_ammo_on_actor(ammo_class)
+end
+
+local tasks_map = {
+    ["simulation_task_31"] = function() xr_effects.reward_faction_gun(nil, nil, { "simulation_task_31" }) end,
+    ["simulation_task_13"] = function() xr_effects.reward_faction_gun(nil, nil, { "simulation_task_13" }) end,
+    ["simulation_task_73"] = function() xr_effects.reward_faction_gun(nil, nil, { "simulation_task_73" }) end,
+    ["simulation_task_4"] = function() xr_effects.reward_own_ammo(nil, nil, { "simulation_task_4" }) end,
+    ["simulation_task_14"] = function() xr_effects.reward_random_ammo(nil, nil, { "simulation_task_14" }) end,
+}
+
+function on_game_start()
+    local old_task_manager_set_task_completed = task_manager.CRandomTask.set_task_completed
+    function task_manager.CRandomTask.set_task_completed(self, task_id)
+
+        printf("new task_manager.set_task_completed %s", task_id)
+        local task_reward = tasks_map[task_id]
+        if task_reward then
+            task_reward()
+        end
+
+        old_task_manager_set_task_completed(self, task_id)
+    end
 end
